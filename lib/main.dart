@@ -17,14 +17,11 @@ class HomePage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(),
         body: Center(
-          child: ElevatedButton(
-            onPressed: () {
-              print("from click button");
-            },
-            child: Text("click"),
-            style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.all(20), backgroundColor: Colors.red),
-          ),
-        ));
+            child: MaterialButton(
+          child: Text("click button"),
+          onPressed: () {},
+          color: Colors.green,
+          
+        )));
   }
 }
