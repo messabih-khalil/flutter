@@ -18,15 +18,16 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(),
         body: Container(
           margin: EdgeInsets.all(10),
+          padding: EdgeInsets.all(20),
           color: Colors.red,
           width: double.infinity,
-          height: 200,
-          child: Column(
+          // height: 200,
+          child: Row(
             // justify content
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             // align items
-            crossAxisAlignment: CrossAxisAlignment.start,
+            // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image.asset('assets/books.png'),
               Text("Logic Books"),
