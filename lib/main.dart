@@ -16,14 +16,22 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            print("floating woooow");
-          },
+        body: Container(
           child: Center(
-            child: Icon(Icons.add),
+            child: GestureDetector(
+              onDoubleTap: () {
+                print("double tap");
+              },
+              onTap: () {
+                print("just click");
+              },
+              child: Container(
+                color: Colors.amber,
+                child: Text("Button"),
+                padding: EdgeInsets.all(10),
+              ),
+            ),
           ),
-        ),
-        body: Container());
+        ));
   }
 }
