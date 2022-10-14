@@ -10,21 +10,19 @@ class TestStatefull extends StatefulWidget {
 class TestState extends State<TestStatefull> {
   var counter = 0;
   String? food = "Pizza";
+  bool? checked = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(),
         body: Center(
-          child: DropdownButton(
-            items: ["Pizza", "Burger"]
-                .map((e) => DropdownMenuItem(child: Text("$e"), value: e))
-                .toList(),
-            onChanged: (val) {
+          child: Checkbox(
+            onChanged: (v) {
               setState(() {
-                food = val;
+                checked = v;
               });
             },
-            value: food,
+            value: checked,
           ),
         ));
   }
