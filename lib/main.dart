@@ -16,12 +16,14 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(),
-        body: Center(
-            child: MaterialButton(
-          child: Text("click button"),
-          onPressed: () {},
-          color: Colors.green,
-          
-        )));
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            print("floating woooow");
+          },
+          child: Center(
+            child: Icon(Icons.add),
+          ),
+        ),
+        body: Container());
   }
 }
