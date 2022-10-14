@@ -29,8 +29,18 @@ class HomePage extends StatelessWidget {
             // align items
             // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset('assets/books.png'),
-              Text("Logic Books"),
+              Row(
+                children: [
+                  Image.asset('assets/books.png'),
+                  Text("Logic Books"),
+                ],
+              ),
+              Container(
+                child: Text(
+                  "+",
+                  style: TextStyle(color: Colors.green, fontSize: 30),
+                ),
+              )
             ],
           ),
         ));
