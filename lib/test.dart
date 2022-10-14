@@ -15,14 +15,59 @@ class TestState extends State<TestStatefull> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(),
-        body: Center(
-          child: Checkbox(
-            onChanged: (v) {
-              setState(() {
-                checked = v;
-              });
-            },
-            value: checked,
+        body: Container(
+          width: 200,
+          child: ListView(
+            children: [
+              Container(
+                  height: 200,
+                  color: Colors.green,
+                  child: Center(
+                    child: Text("data"),
+                  )),
+              Container(
+                  height: 200,
+                  color: Colors.green,
+                  child: Center(
+                    child: Text("data"),
+                  )),
+              Container(
+                  height: 200,
+                  color: Colors.green,
+                  child: Center(
+                    child: Text("data"),
+                  )),
+              Container(
+                  height: 200,
+                  color: Colors.green,
+                  child: Center(
+                    child: Text("data"),
+                  )),
+              Container(
+                  height: 200,
+                  color: Colors.green,
+                  child: Center(
+                    child: Text("data"),
+                  )),
+              Container(
+                  height: 200,
+                  color: Colors.green,
+                  child: Center(
+                    child: Text("data"),
+                  )),
+              Container(
+                  height: 200,
+                  color: Colors.green,
+                  child: Center(
+                    child: Text("data"),
+                  )),
+              Container(
+                  height: 200,
+                  color: Colors.green,
+                  child: Center(
+                    child: Text("data"),
+                  )),
+            ],
           ),
         ));
   }
