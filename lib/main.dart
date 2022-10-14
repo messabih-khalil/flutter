@@ -16,13 +16,22 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(),
-        body: Card(
-          margin: EdgeInsets.all(20),
-          child: Text(
-            "Card title",
-            style: TextStyle(fontSize: 30),
-          ),
+        body: Container(
+          margin: EdgeInsets.all(10),
           color: Colors.red,
+          width: double.infinity,
+          height: 200,
+          child: Column(
+            // justify content
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            // align items
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image.asset('assets/books.png'),
+              Text("Logic Books"),
+            ],
+          ),
         ));
   }
 }
