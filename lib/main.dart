@@ -16,28 +16,13 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(),
-        body: Container(
-          width: double.infinity,
-          height: 70,
+        body: Card(
           margin: EdgeInsets.all(20),
-          padding: EdgeInsets.symmetric(horizontal: 0, vertical: 20),
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-              color: Colors.red,
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: [
-                BoxShadow(color: Colors.grey, blurRadius: 2, spreadRadius: 1)
-              ]),
           child: Text(
-            "Learn typescript",
-            style: TextStyle(
-              fontSize: 18.0,
-              // color
-              color: Color.fromARGB(255, 34, 34, 34),
-              // font properties
-              fontWeight: FontWeight.bold,
-            ),
+            "Card title",
+            style: TextStyle(fontSize: 30),
           ),
+          color: Colors.red,
         ));
   }
 }
