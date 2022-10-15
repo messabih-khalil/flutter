@@ -52,10 +52,7 @@ class TestState extends State<TestStatefull> {
                       Text("${tasks[i]}"),
                       ElevatedButton(
                           onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => CardPage()));
+                            Navigator.pushNamed(context, "cardView");
                           },
                           child: Text("Go to ${tasks[i]}"))
                     ],
