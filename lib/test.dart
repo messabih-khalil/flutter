@@ -11,25 +11,24 @@ class TestState extends State<TestStatefull> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Logo"),
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            onPressed: () {},
+        appBar: AppBar(),
+        drawer: Drawer(),
+        body: Container(
+          padding: EdgeInsets.all(20),
+          child: Column(
+            children: [
+              TextFormField(
+                decoration: InputDecoration(
+                    hintText: "Write your name ...",
+                    // prefixIcon: Icon(Icons.help),
+                    labelText: "Name",
+                    suffix: Icon(
+                      Icons.error,
+                      color: Colors.red,
+                    )),
+              )
+            ],
           ),
-          actions: [
-            IconButton(
-              icon: Icon(Icons.access_alarm),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: Icon(Icons.add),
-              onPressed: () {},
-            ),
-          ],
-          backgroundColor: Colors.green,
-          centerTitle: true,
-        ),
-        body: Text("appBar"));
+        ));
   }
 }
