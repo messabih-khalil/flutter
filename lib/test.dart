@@ -11,64 +11,42 @@ class TestState extends State<TestStatefull> {
   var counter = 0;
   String? food = "Pizza";
   bool? checked = false;
+  List<String> tasks = [
+    "cook",
+    "sport",
+    "read book",
+    "cook",
+    "sport",
+    "read book",
+    "cook",
+    "sport",
+    "read book",
+    "cook",
+    "sport",
+    "read book",
+    "cook",
+    "sport",
+    "read book",
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(),
         body: Container(
-          width: 200,
-          child: ListView(
-            children: [
-              Container(
-                  height: 200,
+          width: double.infinity,
+          margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child: ListView.builder(
+              itemCount: tasks.length,
+              itemBuilder: (context, i) {
+                return Container(
+                  width: double.infinity,
+                  // height: 20,
+                  padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+                  margin: EdgeInsets.only(top: 20),
                   color: Colors.green,
-                  child: Center(
-                    child: Text("data"),
-                  )),
-              Container(
-                  height: 200,
-                  color: Colors.green,
-                  child: Center(
-                    child: Text("data"),
-                  )),
-              Container(
-                  height: 200,
-                  color: Colors.green,
-                  child: Center(
-                    child: Text("data"),
-                  )),
-              Container(
-                  height: 200,
-                  color: Colors.green,
-                  child: Center(
-                    child: Text("data"),
-                  )),
-              Container(
-                  height: 200,
-                  color: Colors.green,
-                  child: Center(
-                    child: Text("data"),
-                  )),
-              Container(
-                  height: 200,
-                  color: Colors.green,
-                  child: Center(
-                    child: Text("data"),
-                  )),
-              Container(
-                  height: 200,
-                  color: Colors.green,
-                  child: Center(
-                    child: Text("data"),
-                  )),
-              Container(
-                  height: 200,
-                  color: Colors.green,
-                  child: Center(
-                    child: Text("data"),
-                  )),
-            ],
-          ),
+                  child: Text("${tasks[i]}"),
+                );
+              }),
         ));
   }
 }
