@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutterapp/routes/cardPage.dart';
+
 class TestStatefull extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -44,7 +46,20 @@ class TestState extends State<TestStatefull> {
                   width: double.infinity,
                   padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
                   color: Colors.green,
-                  child: Text("${tasks[i]}"),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("${tasks[i]}"),
+                      ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => CardPage()));
+                          },
+                          child: Text("Go to ${tasks[i]}"))
+                    ],
+                  ),
                 );
               }),
         ));
