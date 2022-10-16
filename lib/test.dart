@@ -52,7 +52,8 @@ class TestState extends State<TestStatefull> {
                       Text("${tasks[i]}"),
                       ElevatedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, "cardView");
+                            Navigator.pushNamed(context, "cardView",
+                                arguments: new TaskName(tasks[i]));
                           },
                           child: Text("Go to ${tasks[i]}"))
                     ],
@@ -61,4 +62,9 @@ class TestState extends State<TestStatefull> {
               }),
         ));
   }
+}
+
+class TaskName {
+  String name;
+  TaskName(this.name);
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp/test.dart';
 
 class CardPage extends StatefulWidget {
   @override
@@ -10,9 +11,11 @@ class CardPage extends StatefulWidget {
 class CardView extends State<CardPage> {
   @override
   Widget build(BuildContext context) {
+    TaskName task = ModalRoute.of(context)?.settings.arguments as TaskName;
+
     return Scaffold(
       appBar: AppBar(),
-      body: Text("Card Route"),
+      body: Text("task name : ${task.name}"),
     );
   }
 }
