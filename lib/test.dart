@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutterapp/routes/cardPage.dart';
+import 'package:flutterapp/routes/LoginPage.dart';
 
 class TestStatefull extends StatefulWidget {
   @override
@@ -35,31 +35,13 @@ class TestState extends State<TestStatefull> {
     return Scaffold(
         appBar: AppBar(),
         body: Container(
-          width: double.infinity,
-          margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, crossAxisSpacing: 10, mainAxisSpacing: 10),
-              itemCount: tasks.length,
-              itemBuilder: (context, i) {
-                return Container(
-                  width: double.infinity,
-                  padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-                  color: Colors.green,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("${tasks[i]}"),
-                      ElevatedButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, "cardView",
-                                arguments: new TaskName(tasks[i]));
-                          },
-                          child: Text("Go to ${tasks[i]}"))
-                    ],
-                  ),
-                );
-              }),
+          padding: EdgeInsets.all(20),
+          child: ElevatedButton(
+            child: Text("LoginPage"),
+            onPressed: () {
+              Navigator.pushNamed(context, '/login');
+            },
+          ),
         ));
   }
 }

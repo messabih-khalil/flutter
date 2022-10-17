@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapp/routes/cardPage.dart';
+import 'package:flutterapp/routes/LoginPage.dart';
 
 import 'package:flutterapp/test.dart';
 
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: TestStatefull(),
       // routes
-      routes: {"cardView": (context) => CardPage()},
+      routes: {"/login": (context) => LoginPage()},
     );
   }
 }
