@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
               onPressed: () {
                 Navigator.pushNamed(context, '/settings');
               },
-              icon: Icon(Icons.settings))
+              icon: Icon(Icons.edit_note))
         ],
       ),
       body: Container(),

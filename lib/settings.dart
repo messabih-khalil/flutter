@@ -1,5 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:path_provider/path_provider.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -9,74 +11,78 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  int? userColor = Colors.white.value;
-  // shared data instance
-  late SharedPreferences prefs;
+  int counter = 0;
 
-  @protected
-  saveColor(int? color) async {
-    prefs = await SharedPreferences.getInstance();
-    prefs.setInt("userColor", color!.toInt());
+  // get local path
+  Future<String> getLocalPath() async {
+    var folder = await getApplicationDocumentsDirectory();
+    return folder.path;
   }
 
-  @protected
-  getColor() async {
-    prefs = await SharedPreferences.getInstance();
-    setState(() {
-      userColor = prefs.getInt("userColor") ?? Colors.white.value;
+  // get local file
+  Future<File> getLocalFile() async {
+    String path = await getLocalPath();
+    return File('$path/counter.txt');
+  }
+
+  Future<File> writeToFile(int counter) async {
+    File file = await getLocalFile();
+    return file.writeAsString('$counter');
+  }
+
+  Future<int> readCounter() async {
+    try {
+      final file = await getLocalFile();
+      String counter = await file.readAsString();
+
+      return int.parse(counter);
+    } catch (e) {
+      print(e);
+      return 0;
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    readCounter().then((value) {
+      setState(() {
+        counter = value;
+      });
     });
-    print("from data : ${userColor}");
   }
 
   @override
   Widget build(BuildContext context) {
-    getColor();
     return Scaffold(
-      backgroundColor: Color(userColor!.toInt()),
       appBar: AppBar(
-        title: Text("Settings"),
+        title: Text("Read/Write files"),
       ),
       body: Container(
-        margin: EdgeInsets.symmetric(vertical: 20),
-        child: Column(
-          children: [
-            // radio buttons list
-            RadioListTile(
-              title: Text('green'),
-              value: Colors.green.value,
-              groupValue: userColor,
-              onChanged: (int? value) {
-                setState(() {
-                  userColor = value;
-                });
-                saveColor(value);
-              },
-            ),
-            RadioListTile(
-              title: Text('red'),
-              value: Colors.red.value,
-              groupValue: userColor,
-              onChanged: (int? value) {
-                setState(() {
-                  userColor = value;
-                });
-                saveColor(value);
-              },
-            ),
-            RadioListTile(
-              title: Text('blue'),
-              value: Colors.blue.value,
-              groupValue: userColor,
-              onChanged: (int? value) {
-                setState(() {
-                  userColor = value;
-                });
-                saveColor(value);
-              },
-            ),
-          ],
-        ),
-      ),
+          width: double.infinity,
+          margin: EdgeInsets.symmetric(vertical: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("increase counter"),
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 20),
+                child: Text("number is : ${counter}"),
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      counter++;
+                    });
+
+                    // write to file
+
+                    writeToFile(counter);
+                  },
+                  child: Text("Increase"))
+            ],
+          )),
     );
   }
 }
