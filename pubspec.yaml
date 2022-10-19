@@ -39,6 +39,8 @@ dependencies:
   uuid: ^3.0.6
   shared_preferences: 
   path_provider: 
+  sqflite: 
+  path: 
 
 dev_dependencies:
   flutter_test:

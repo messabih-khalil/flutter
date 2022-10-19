@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutterapp/home.dart';
-import 'package:flutterapp/settings.dart';
+import 'package:flutterapp/createTask.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Home(),
-      routes: {"/settings": (context) => Settings()},
+      routes: {"/createTask": (context) => Task()},
     );
   }
 }
